@@ -185,7 +185,7 @@ input:focus,select:focus,textarea:focus{outline:3px solid #8ACFF2;outline-offset
 <div style="flex: 1 1 380px; min-width: 0; display: flex; flex-direction: column; gap: 20px">
 <div style="font-weight: 700; font-size: 14px; letter-spacing: 0.14em; color: #0A6FAE">FREE QUOTE</div>
 <h2 style="margin: 0; font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: clamp(30px, 5vw, 44px); line-height: 1.15; color: #041837">What needs doing?</h2>
-<p style="margin: 0; font-size: 18px; line-height: 1.6; color: #4B5B70">Message Joe on WhatsApp. Fill in a few details, tap the button, and WhatsApp opens with your message ready to send. Add a photo or two of the job before you send it and you'll get a quicker, more accurate price.</p>
+<p style="margin: 0; font-size: 18px; line-height: 1.6; color: #4B5B70">Fill in a few details, then either send them on WhatsApp or send the request straight from here and Joe will get back to you. On WhatsApp you can add a photo or two of the job for a quicker, more accurate price.</p>
 <div style="display: flex; flex-direction: column; gap: 14px; padding-top: 8px; font-size: 17px">
 <div style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 14px; font-weight: 600; color: #4B5B70">Talk to</span><span style="font-weight: 700">Joe Langley, Director</span></div>
 <div style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 14px; font-weight: 600; color: #4B5B70">Phone</span><span style="display: flex; flex-wrap: wrap; gap: 4px 14px"><a href="tel:+447955245236" style="font-weight: 700; color: #041837">07955 245236</a><a href="https://wa.me/447955245236" target="_blank" rel="noopener" style="font-weight: 700; color: #0A6FAE">Message on WhatsApp</a></span></div>
@@ -238,8 +238,9 @@ input:focus,select:focus,textarea:focus{outline:3px solid #8ACFF2;outline-offset
   // Google Form that receives "Send request" enquiries. Fill in from the form's pre-filled link;
   // the button stays hidden while YOUR_FORM_ID is still here.
   var GF = {
-    action: 'https://docs.google.com/forms/d/e/YOUR_FORM_ID/formResponse',
-    name: 'entry.0', phone: 'entry.0', email: 'entry.0', postcode: 'entry.0', service: 'entry.0', details: 'entry.0', source: 'entry.0'
+    action: 'https://docs.google.com/forms/d/e/1FAIpQLScOjy_APDrotirOgiI_DABPcbRrddrPxATc1CDd01yH5wstog/formResponse',
+    name: 'entry.1627329885', phone: 'entry.726787261', email: 'entry.709494246', postcode: 'entry.2070238926',
+    service: 'entry.1872799455', details: 'entry.1533863305', source: 'entry.540784080'
   };
   var f = document.getElementById('wa-form'); if (!f) return;
   var $ = function (id) { return document.getElementById(id); };
