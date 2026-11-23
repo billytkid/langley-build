@@ -185,7 +185,7 @@ input:focus,select:focus,textarea:focus{outline:3px solid #8ACFF2;outline-offset
 <div style="flex: 1 1 380px; min-width: 0; display: flex; flex-direction: column; gap: 20px">
 <div style="font-weight: 700; font-size: 14px; letter-spacing: 0.14em; color: #0A6FAE">FREE QUOTE</div>
 <h2 style="margin: 0; font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: clamp(30px, 5vw, 44px); line-height: 1.15; color: #041837">What needs doing?</h2>
-<p style="margin: 0; font-size: 18px; line-height: 1.6; color: #4B5B70">Message Joe on WhatsApp. Fill in a few details, tap the button, and WhatsApp opens with your message ready to send. Add a photo or two of the job before you send it and you'll get a quicker, more accurate price.</p>
+<p style="margin: 0; font-size: 18px; line-height: 1.6; color: #4B5B70">Fill in a few details, then either send them on WhatsApp or send the request straight from here and Joe will get back to you. On WhatsApp you can add a photo or two of the job for a quicker, more accurate price.</p>
 <div style="display: flex; flex-direction: column; gap: 14px; padding-top: 8px; font-size: 17px">
 <div style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 14px; font-weight: 600; color: #4B5B70">Talk to</span><span style="font-weight: 700">Joe Langley, Director</span></div>
 <div style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 14px; font-weight: 600; color: #4B5B70">Phone</span><span style="display: flex; flex-wrap: wrap; gap: 4px 14px"><a href="tel:+447955245236" style="font-weight: 700; color: #041837">07955 245236</a><a href="https://wa.me/447955245236" target="_blank" rel="noopener" style="font-weight: 700; color: #0A6FAE">Message on WhatsApp</a></span></div>
@@ -193,16 +193,25 @@ input:focus,select:focus,textarea:focus{outline:3px solid #8ACFF2;outline-offset
 <div style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 14px; font-weight: 600; color: #4B5B70">Covering</span><span style="font-weight: 700">Sevenoaks and North Kent</span></div>
 </div>
 </div>
-<form id="wa-form" action="https://wa.me/447955245236" method="get" target="_blank" style="flex: 1 1 520px; min-width: 0; box-sizing: border-box; padding: 32px; border-radius: 20px; background: #F3F7FB; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 18px">
+<form id="wa-form" action="https://wa.me/447955245236" method="get" target="_blank" novalidate style="flex: 1 1 520px; min-width: 0; box-sizing: border-box; padding: 32px; border-radius: 20px; background: #F3F7FB; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 18px">
 <input type="hidden" name="text" id="wa-text" value="Hi Joe, I'd like a quote please.">
-<div style="display: flex; flex-direction: column; gap: 8px"><label for="q-name" style="font-weight: 600; font-size: 15px">Your name</label><input id="q-name" type="text" autocomplete="name" required style="font: inherit; font-size: 16px; padding: 13px 14px; border: 1.5px solid #B8C7D6; border-radius: 10px; background: #FFFFFF; color: #041837"></div>
+<input type="checkbox" id="q-botcheck" tabindex="-1" autocomplete="off" aria-hidden="true" style="display: none">
+<div style="display: flex; flex-direction: column; gap: 8px"><label for="q-name" style="font-weight: 600; font-size: 15px">Your name</label><input id="q-name" type="text" autocomplete="name" style="font: inherit; font-size: 16px; padding: 13px 14px; border: 1.5px solid #B8C7D6; border-radius: 10px; background: #FFFFFF; color: #041837"></div>
 <div style="display: flex; flex-direction: column; gap: 8px"><label for="q-postcode" style="font-weight: 600; font-size: 15px">Postcode</label><input id="q-postcode" type="text" autocomplete="postal-code" style="font: inherit; font-size: 16px; padding: 13px 14px; border: 1.5px solid #B8C7D6; border-radius: 10px; background: #FFFFFF; color: #041837"></div>
+<div data-email-only hidden style="display: flex; flex-direction: column; gap: 8px"><label for="q-phone" style="font-weight: 600; font-size: 15px">Phone</label><input id="q-phone" type="tel" autocomplete="tel" style="font: inherit; font-size: 16px; padding: 13px 14px; border: 1.5px solid #B8C7D6; border-radius: 10px; background: #FFFFFF; color: #041837"></div>
+<div data-email-only hidden style="display: flex; flex-direction: column; gap: 8px"><label for="q-email" style="font-weight: 600; font-size: 15px">Email</label><input id="q-email" type="email" autocomplete="email" style="font: inherit; font-size: 16px; padding: 13px 14px; border: 1.5px solid #B8C7D6; border-radius: 10px; background: #FFFFFF; color: #041837"></div>
 <div style="grid-column: 1 / -1; display: flex; flex-direction: column; gap: 8px"><label for="q-service" style="font-weight: 600; font-size: 15px">What do you need?</label>
 <select id="q-service" style="font: inherit; font-size: 16px; padding: 13px 14px; border: 1.5px solid #B8C7D6; border-radius: 10px; background: #FFFFFF; color: #041837">
 <option>Building repair</option><option>Renovation</option><option>Repointing</option><option>Garden makeover</option><option>Small garden or courtyard</option><option>Patio or hard landscaping</option><option>Something else</option>
 </select></div>
-<div style="grid-column: 1 / -1; display: flex; flex-direction: column; gap: 8px"><label for="q-details" style="font-weight: 600; font-size: 15px">Tell Joe about the job</label><textarea id="q-details" rows="5" required style="font: inherit; font-size: 16px; padding: 13px 14px; border: 1.5px solid #B8C7D6; border-radius: 10px; background: #FFFFFF; color: #041837; resize: vertical"></textarea></div>
-<div style="grid-column: 1 / -1; display: flex; flex-wrap: wrap; align-items: center; gap: 12px 18px"><button type="submit" style="font: inherit; font-weight: 700; font-size: 17px; padding: 16px 28px; border: 0; border-radius: 12px; background: #25D366; color: #041837; cursor: pointer; display: inline-flex; align-items: center; gap: 10px"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.3 7.4L3 21l2.1-5.6A8.4 8.4 0 1 1 21 11.5z"></path><path d="M8.5 10h7M8.5 13.5h4.5"></path></svg>Send on WhatsApp</button><span style="font-size: 14px; line-height: 1.5; color: #4B5B70">Opens WhatsApp with your message ready. Nothing is sent until you press send.</span></div>
+<div style="grid-column: 1 / -1; display: flex; flex-direction: column; gap: 8px"><label for="q-details" style="font-weight: 600; font-size: 15px">Tell Joe about the job</label><textarea id="q-details" rows="5" style="font: inherit; font-size: 16px; padding: 13px 14px; border: 1.5px solid #B8C7D6; border-radius: 10px; background: #FFFFFF; color: #041837; resize: vertical"></textarea></div>
+<div style="grid-column: 1 / -1; display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; flex-wrap: wrap; gap: 12px">
+<button type="submit" id="q-send-wa" style="font: inherit; font-weight: 700; font-size: 17px; padding: 16px 26px; border: 0; border-radius: 12px; background: #25D366; color: #041837; cursor: pointer; display: inline-flex; align-items: center; gap: 10px"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.3 7.4L3 21l2.1-5.6A8.4 8.4 0 1 1 21 11.5z"></path><path d="M8.5 10h7M8.5 13.5h4.5"></path></svg>Send on WhatsApp</button>
+<button type="submit" id="q-send-email" data-email-only hidden style="font: inherit; font-weight: 700; font-size: 17px; padding: 14px 24px; border: 2px solid #041837; border-radius: 12px; background: #FFFFFF; color: #041837; cursor: pointer; display: inline-flex; align-items: center; gap: 10px"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="M22 7l-10 6L2 7"></path></svg>Send request</button>
+</div>
+<p id="q-status" role="status" aria-live="polite" style="margin: 0; font-size: 14px; line-height: 1.5; color: #4B5B70">WhatsApp opens with your message ready to send. Nothing is sent until you press send.</p>
+</div>
 </form>
 </div>
 </section>
@@ -226,15 +235,46 @@ input:focus,select:focus,textarea:focus{outline:3px solid #8ACFF2;outline-offset
 <a href="https://wa.me/447955245236?text=Hi%20Joe%2C%20I%20found%20you%20on%20langleybuild.com%20and%20I%27d%20like%20a%20quote." target="_blank" rel="noopener" aria-label="Message Joe on WhatsApp" style="position: fixed; right: 18px; bottom: 18px; z-index: 50; width: 58px; height: 58px; border-radius: 29px; background: #25D366; color: #041837; display: flex; align-items: center; justify-content: center; box-shadow: 0 6px 18px rgba(4, 24, 55, 0.28)"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.3 7.4L3 21l2.1-5.6A8.4 8.4 0 1 1 21 11.5z"></path><path d="M8.5 10h7M8.5 13.5h4.5"></path></svg></a>
 <script>
 (function () {
+  // Google Form that receives "Send request" enquiries. Fill in from the form's pre-filled link;
+  // the button stays hidden while YOUR_FORM_ID is still here.
+  var GF = {
+    action: 'https://docs.google.com/forms/d/e/1FAIpQLScOjy_APDrotirOgiI_DABPcbRrddrPxATc1CDd01yH5wstog/formResponse',
+    name: 'entry.1627329885', phone: 'entry.726787261', email: 'entry.709494246', postcode: 'entry.2070238926',
+    service: 'entry.1872799455', details: 'entry.1533863305', source: 'entry.540784080'
+  };
   var f = document.getElementById('wa-form'); if (!f) return;
-  f.addEventListener('submit', function () {
-    var v = function (id) { var el = document.getElementById(id); return el ? el.value.trim() : ''; };
-    var lines = ["Hi Joe, I'd like a quote please.", ''];
-    if (v('q-name')) lines.push('Name: ' + v('q-name'));
-    if (v('q-postcode')) lines.push('Postcode: ' + v('q-postcode'));
-    lines.push('Job: ' + v('q-service'));
-    if (v('q-details')) lines.push('', v('q-details'));
-    document.getElementById('wa-text').value = lines.join('\n');
+  var $ = function (id) { return document.getElementById(id); };
+  var v = function (id) { var el = $(id); return el ? el.value.trim() : ''; };
+  var formOn = GF.action.indexOf('YOUR_FORM_ID') === -1;
+  var status = $('q-status');
+  var say = function (msg, bad) { status.textContent = msg; status.style.color = bad ? '#B42318' : '#4B5B70'; };
+  if (formOn) {
+    [].forEach.call(document.querySelectorAll('[data-email-only]'), function (el) { el.hidden = false; });
+    say('Send on WhatsApp (add photos before you send), or send the request here and Joe will reply by phone or email.');
+  }
+  f.addEventListener('submit', function (e) {
+    var viaForm = e.submitter && e.submitter.id === 'q-send-email';
+    if (!v('q-name') || !v('q-details')) { e.preventDefault(); say('Please add your name and a few words about the job.', true); return; }
+    if (!viaForm) {
+      var lines = ["Hi Joe, I'd like a quote please.", '', 'Name: ' + v('q-name')];
+      if (v('q-postcode')) lines.push('Postcode: ' + v('q-postcode'));
+      lines.push('Job: ' + v('q-service'), '', v('q-details'));
+      $('wa-text').value = lines.join('\n');
+      say('WhatsApp is opening with your message ready to send.');
+      return;
+    }
+    e.preventDefault();
+    if (!v('q-phone') && !v('q-email')) { say('Please add a phone number or email so Joe can reply.', true); return; }
+    if ($('q-botcheck').checked) { f.reset(); say('Thanks, your request has been sent.'); return; }
+    var body = new URLSearchParams();
+    body.append(GF.name, v('q-name')); body.append(GF.phone, v('q-phone')); body.append(GF.email, v('q-email'));
+    body.append(GF.postcode, v('q-postcode')); body.append(GF.service, v('q-service')); body.append(GF.details, v('q-details')); body.append(GF.source, 'Website');
+    var btn = $('q-send-email'); btn.disabled = true; say('Sending…');
+    fetch(GF.action, { method: 'POST', mode: 'no-cors', body: body }).then(function () {
+      f.reset(); say('Thanks, your request has been sent. Joe will be in touch soon.');
+    }).catch(function () {
+      say("Sorry, that didn't send. Please try WhatsApp or call 07955 245236.", true);
+    }).then(function () { btn.disabled = false; });
   });
 })();
 (function () {
