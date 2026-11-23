@@ -250,6 +250,14 @@ input:focus,select:focus,textarea:focus{outline:3px solid #8ACFF2;outline-offset
     [].forEach.call(document.querySelectorAll('[data-email-only]'), function (el) { el.hidden = false; });
     say('Send on WhatsApp (add photos before you send), or send the request here and Joe will reply by phone or email.');
   }
+  // Every enquiry made through this form lands in Joe's sheet, tagged with how it was sent
+  function toSheet(source) {
+    var body = new URLSearchParams();
+    body.append(GF.name, v('q-name')); body.append(GF.phone, v('q-phone')); body.append(GF.email, v('q-email'));
+    body.append(GF.postcode, v('q-postcode')); body.append(GF.service, v('q-service')); body.append(GF.details, v('q-details'));
+    body.append(GF.source, source);
+    return fetch(GF.action, { method: 'POST', mode: 'no-cors', body: body, keepalive: true });
+  }
   f.addEventListener('submit', function (e) {
     var viaForm = e.submitter && e.submitter.id === 'q-send-email';
     if (!v('q-name') || !v('q-details')) { e.preventDefault(); say('Please add your name and a few words about the job.', true); return; }
@@ -258,17 +266,15 @@ input:focus,select:focus,textarea:focus{outline:3px solid #8ACFF2;outline-offset
       if (v('q-postcode')) lines.push('Postcode: ' + v('q-postcode'));
       lines.push('Job: ' + v('q-service'), '', v('q-details'));
       $('wa-text').value = lines.join('\n');
+      if (formOn && !$('q-botcheck').checked) toSheet('WhatsApp').catch(function () {});
       say('WhatsApp is opening with your message ready to send.');
       return;
     }
     e.preventDefault();
     if (!v('q-phone') && !v('q-email')) { say('Please add a phone number or email so Joe can reply.', true); return; }
     if ($('q-botcheck').checked) { f.reset(); say('Thanks, your request has been sent.'); return; }
-    var body = new URLSearchParams();
-    body.append(GF.name, v('q-name')); body.append(GF.phone, v('q-phone')); body.append(GF.email, v('q-email'));
-    body.append(GF.postcode, v('q-postcode')); body.append(GF.service, v('q-service')); body.append(GF.details, v('q-details')); body.append(GF.source, 'Website');
     var btn = $('q-send-email'); btn.disabled = true; say('Sending…');
-    fetch(GF.action, { method: 'POST', mode: 'no-cors', body: body }).then(function () {
+    toSheet('Website').then(function () {
       f.reset(); say('Thanks, your request has been sent. Joe will be in touch soon.');
     }).catch(function () {
       say("Sorry, that didn't send. Please try WhatsApp or call 07955 245236.", true);
